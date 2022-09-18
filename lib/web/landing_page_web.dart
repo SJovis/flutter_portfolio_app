@@ -13,6 +13,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
   @override
   Widget build(BuildContext context) {
     var heightDevice = MediaQuery.of(context).size.height;
+    var widthDevice = MediaQuery.of(context).size.width;
     return Scaffold(
       drawer: Drawer(),
       backgroundColor: Colors.white,
@@ -37,6 +38,7 @@ class _LandingPageWebState extends State<LandingPageWeb> {
       ),
       body: ListView(
         children: [
+          // FIRST PAGE
           Container(
             height: heightDevice - 56,
             child: Row(
@@ -94,6 +96,97 @@ class _LandingPageWebState extends State<LandingPageWeb> {
                       backgroundImage: AssetImage('assets/photo.jpeg'),
                     ),
                   ),
+                ),
+              ],
+            ),
+          ),
+          // SECOND PAGE
+          Container(
+            height: heightDevice / 1.5,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Image.asset('image_01.jpeg', width: widthDevice / 2.1),
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    SansBold("About me", 40),
+                    SizedBox(height: 15),
+                    Sans(
+                        "Pellentesque sed tristique dolor, non consequat nibh.",
+                        15),
+                    Sans(
+                        "Mauris ac lacinia nulla. Nullam efficitur pulvinar placerat.",
+                        15),
+                    Sans("Duis vestibulum nisi tristique sapien mollis tempor.",
+                        15),
+                    SizedBox(height: 20),
+                    Row(
+                      children: [
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.tealAccent,
+                                style: BorderStyle.solid,
+                                width: 2.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          padding: EdgeInsets.all(7),
+                          child: Sans("Flutter", 15),
+                        ),
+                        SizedBox(width: 7.0),
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.tealAccent,
+                                style: BorderStyle.solid,
+                                width: 2.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          padding: EdgeInsets.all(7),
+                          child: Sans("Firebase", 15),
+                        ),
+                        SizedBox(width: 7.0),
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.tealAccent,
+                                style: BorderStyle.solid,
+                                width: 2.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          padding: EdgeInsets.all(7),
+                          child: Sans("Android", 15),
+                        ),
+                        SizedBox(width: 7),
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.tealAccent,
+                                style: BorderStyle.solid,
+                                width: 2.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          padding: EdgeInsets.all(7),
+                          child: Sans("iOS", 15),
+                        ),
+                        SizedBox(width: 7),
+                        Container(
+                          decoration: BoxDecoration(
+                            border: Border.all(
+                                color: Colors.tealAccent,
+                                style: BorderStyle.solid,
+                                width: 2.0),
+                            borderRadius: BorderRadius.circular(5.0),
+                          ),
+                          padding: EdgeInsets.all(7),
+                          child: Sans("Windows", 15),
+                        ),
+                      ],
+                    )
+                  ],
                 ),
               ],
             ),
