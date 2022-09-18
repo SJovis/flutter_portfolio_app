@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
+import 'package:portfolio_app/components.dart';
 
 class LandingPageWeb extends StatefulWidget {
   const LandingPageWeb({super.key});
@@ -10,6 +12,94 @@ class LandingPageWeb extends StatefulWidget {
 class _LandingPageWebState extends State<LandingPageWeb> {
   @override
   Widget build(BuildContext context) {
-    return Container();
+    var heightDevice = MediaQuery.of(context).size.height;
+    return Scaffold(
+      drawer: Drawer(),
+      backgroundColor: Colors.white,
+      appBar: AppBar(
+        backgroundColor: Colors.white,
+        elevation: 0.0,
+        iconTheme: IconThemeData(size: 25.0, color: Colors.black),
+        title: Row(
+          children: [
+            Spacer(flex: 10),
+            TabsWeb('Home'),
+            Spacer(),
+            TabsWeb('Works'),
+            Spacer(),
+            TabsWeb('Blog'),
+            Spacer(),
+            TabsWeb('About'),
+            Spacer(),
+            TabsWeb('Contact'),
+          ],
+        ),
+      ),
+      body: ListView(
+        children: [
+          Container(
+            height: heightDevice - 56,
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceAround,
+              children: [
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.tealAccent,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20),
+                          topRight: Radius.circular(20),
+                          bottomRight: Radius.circular(20),
+                        ),
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10,
+                        horizontal: 20,
+                      ),
+                      child: SansBold("Hello, I'm", 15),
+                    ),
+                    SizedBox(height: 15),
+                    SansBold("Sergio Jovis", 55.0),
+                    SizedBox(height: 5),
+                    Sans("Front-End Developer", 30.0),
+                    SizedBox(height: 15),
+                    Row(
+                      children: [
+                        Icon(Icons.email),
+                        SizedBox(width: 10),
+                        Sans("jovis.sergio@gmail.com", 15.0)
+                      ],
+                    ),
+                    SizedBox(height: 5),
+                    Row(
+                      children: [
+                        Icon(Icons.location_pin),
+                        SizedBox(width: 10),
+                        Sans("Lisbon, Portugal", 15.0)
+                      ],
+                    ),
+                  ],
+                ),
+                CircleAvatar(
+                  radius: 149,
+                  backgroundColor: Colors.tealAccent,
+                  child: CircleAvatar(
+                    radius: 143,
+                    backgroundColor: Colors.black,
+                    child: CircleAvatar(
+                      radius: 140,
+                      backgroundImage: AssetImage('assets/photo.jpeg'),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ),
+        ],
+      ),
+    );
   }
 }
