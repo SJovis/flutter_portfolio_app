@@ -269,7 +269,52 @@ class _LandingPageWebState extends State<LandingPageWeb> {
               ],
             ),
           ),
-          //
+          // FORTH PAGE
+          Container(
+            height: heightDevice,
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                SansBold("Contact me", 40),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+                  children: [
+                    Column(
+                      children: [
+                        TextForm(
+                            heading: "First name",
+                            width: 350,
+                            hintText: "Please type your first name"),
+                        SizedBox(height: 15),
+                        TextForm(
+                            heading: "Email",
+                            width: 350,
+                            hintText: "Please enter your email address"),
+                      ],
+                    ),
+                    Column(
+                      children: [
+                        TextForm(
+                            heading: "Last name",
+                            width: 350,
+                            hintText: "Please type your last name"),
+                        SizedBox(height: 15),
+                        TextForm(
+                            heading: "Phone number",
+                            width: 350,
+                            hintText: "Please type your phone number"),
+                      ],
+                    ),
+                  ],
+                ),
+                TextForm(
+                    heading: "Message",
+                    width: widthDevice / 1.4,
+                    hintText: "Please type your message",
+                    maxLine: 10),
+              ],
+            ),
+          ),
         ],
       ),
     );
