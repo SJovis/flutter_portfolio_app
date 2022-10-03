@@ -85,6 +85,77 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
           ],
         ),
       ),
+      body: ListView(
+        children: [
+          //  INTRO, FIRST SECTION
+          Padding(
+            padding: const EdgeInsets.only(left: 20.0, top: 20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                CircleAvatar(
+                  radius: 117.0,
+                  backgroundColor: Colors.tealAccent,
+                  child: CircleAvatar(
+                    radius: 110.0,
+                    backgroundColor: Colors.white,
+                    backgroundImage: AssetImage('assets/photoCircle.png'),
+                  ),
+                ),
+                SizedBox(
+                  height: 25.0,
+                ),
+                Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Container(
+                      decoration: BoxDecoration(
+                        color: Colors.tealAccent,
+                        borderRadius: BorderRadius.only(
+                          topLeft: Radius.circular(20.0),
+                          topRight: Radius.circular(20.0),
+                          bottomRight: Radius.circular(20.0),
+                        ),
+                      ),
+                      padding: EdgeInsets.symmetric(
+                        vertical: 10.0,
+                        horizontal: 20.0,
+                      ),
+                      child: SansBold("Hello, I'm", 15.0),
+                    ),
+                    SansBold('Sergio Jovis', 40.0),
+                    Sans('Flutter Developer', 20.0),
+                  ],
+                ),
+                SizedBox(height: 15.0),
+                Row(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Wrap(
+                      direction: Axis.vertical,
+                      spacing: 3.0,
+                      children: [
+                        Icon(Icons.email),
+                        Icon(Icons.location_pin),
+                      ],
+                    ),
+                    SizedBox(width: 10.0),
+                    Wrap(
+                      direction: Axis.vertical,
+                      spacing: 10.0,
+                      children: [
+                        Sans('jovis.sergio@gmail.com', 15.0),
+                        Sans('Lisbon, Portugal', 15.0),
+                      ],
+                    ),
+                  ],
+                )
+              ],
+            ),
+          ),
+          SizedBox(height: 90.0),
+        ],
+      ),
     );
   }
 }
