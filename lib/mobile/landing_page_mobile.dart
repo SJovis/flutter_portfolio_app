@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:google_fonts/google_fonts.dart';
 import 'package:portfolio_app/components.dart';
 import 'package:url_launcher/url_launcher.dart';
 
@@ -11,11 +12,27 @@ class LandingPageMobile extends StatefulWidget {
 }
 
 class _LandingPageMobileState extends State<LandingPageMobile> {
+  tealContainer(String text) {
+    return Container(
+      decoration: BoxDecoration(
+        border: Border.all(
+            color: Colors.tealAccent, style: BorderStyle.solid, width: 2.0),
+        borderRadius: BorderRadius.circular(5.0),
+      ),
+      padding: EdgeInsets.all(7.0),
+      child: Text(
+        text,
+        style: GoogleFonts.openSans(fontSize: 15.0),
+      ),
+    );
+  }
+
   @override
   Widget build(BuildContext context) {
     var widthDevice = MediaQuery.of(context).size.width;
 
     return Scaffold(
+      extendBodyBehindAppBar: true,
       backgroundColor: Colors.white,
       appBar: AppBar(
         backgroundColor: Colors.transparent,
@@ -103,7 +120,7 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                   ),
                 ),
                 SizedBox(
-                  height: 25.0,
+                  height: 30.0,
                 ),
                 Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
@@ -153,7 +170,39 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
               ],
             ),
           ),
-          SizedBox(height: 90.0),
+          SizedBox(height: 120.0),
+          // ABOUT, SECOND SECTION
+          Padding(
+            padding: EdgeInsets.only(left: 20.0),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                SansBold('About me', 35.0),
+                SizedBox(height: 15.0),
+                Sans("Sed gravida, purus vel faucibus feugiat, tortor velit.",
+                    15.0),
+                Sans(
+                    "Eget viverra odio augue in libero. Sed ac eleifend lectus.",
+                    15.0),
+                Sans(
+                    "Mauris at auctor est. Mauris viverra et eros sit amet ullamcorper.",
+                    15.0),
+                SizedBox(height: 15.0),
+                Wrap(
+                  spacing: 7.0,
+                  runSpacing: 7.0,
+                  children: [
+                    tealContainer('Flutter'),
+                    tealContainer('Firebase'),
+                    tealContainer('Android'),
+                    tealContainer('Windows'),
+                  ],
+                )
+              ],
+            ),
+          ),
+          SizedBox(height: 60.0),
         ],
       ),
     );
