@@ -188,9 +188,9 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
                 Sans(
                     "Mauris at auctor est. Mauris viverra et eros sit amet ullamcorper.",
                     15.0),
-                SizedBox(height: 15.0),
+                SizedBox(height: 20.0),
                 Wrap(
-                  spacing: 7.0,
+                  spacing: 15.0,
                   runSpacing: 7.0,
                   children: [
                     tealContainer('Flutter'),
@@ -202,7 +202,77 @@ class _LandingPageMobileState extends State<LandingPageMobile> {
               ],
             ),
           ),
-          SizedBox(height: 60.0),
+          SizedBox(height: 120.0),
+          // CARDS, THIRD SECTION
+          Column(
+            crossAxisAlignment: CrossAxisAlignment.center,
+            children: [
+              SansBold("What I do", 35.0),
+              SizedBox(height: 30.0),
+              AnimatedCard(
+                imagePath: "assets/webL.png",
+                text: "Web Development",
+                width: 300.0,
+              ),
+              SizedBox(height: 35.0),
+              AnimatedCard(
+                imagePath: "assets/app.png",
+                text: "App Development",
+                fit: BoxFit.contain,
+                reverse: true,
+                width: 300.0,
+              ),
+              SizedBox(height: 35.0),
+              AnimatedCard(
+                imagePath: "assets/firebase.png",
+                text: "Back-end Development",
+                width: 300.0,
+              ),
+            ],
+          ),
+          SizedBox(height: 120.0),
+          // CONTACT, FORTH SECTION
+          Wrap(
+            runSpacing: 20.0,
+            spacing: 20.0,
+            alignment: WrapAlignment.center,
+            children: [
+              SansBold("Contact me", 35.0),
+              TextForm(
+                  heading: "First Name",
+                  width: widthDevice / 1.4,
+                  hintText: "Please type first name"),
+              TextForm(
+                  heading: "Last Name",
+                  width: widthDevice / 1.4,
+                  hintText: "Please type last name"),
+              TextForm(
+                  heading: "Email",
+                  width: widthDevice / 1.4,
+                  hintText: "Please type email address"),
+              TextForm(
+                  heading: "Phone number",
+                  width: widthDevice / 1.4,
+                  hintText: "Please type your phone number"),
+              TextForm(
+                  heading: "Message",
+                  width: widthDevice / 1.4,
+                  hintText: "Message",
+                  maxLines: 10),
+              MaterialButton(
+                onPressed: () {},
+                elevation: 20.0,
+                shape: RoundedRectangleBorder(
+                  borderRadius: BorderRadius.circular(10.0),
+                ),
+                height: 60.0,
+                minWidth: widthDevice / 1.2,
+                color: Colors.tealAccent,
+                child: SansBold("Submit", 20.0),
+              ),
+            ],
+          ),
+          SizedBox(height: 20.0),
         ],
       ),
     );
