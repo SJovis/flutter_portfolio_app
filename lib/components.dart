@@ -3,7 +3,8 @@ import 'package:google_fonts/google_fonts.dart';
 
 class TabsWeb extends StatefulWidget {
   final title;
-  const TabsWeb(this.title, {super.key});
+  final route;
+  const TabsWeb({super.key, this.title, this.route});
 
   @override
   State<TabsWeb> createState() => _TabsWebState();
@@ -13,32 +14,37 @@ class _TabsWebState extends State<TabsWeb> {
   bool isSelected = false;
   @override
   Widget build(BuildContext context) {
-    return MouseRegion(
-      onEnter: (_) {
-        setState(() {
-          isSelected = true;
-        });
+    return GestureDetector(
+      onTap: () {
+        Navigator.of(context).pushNamed(widget.route);
       },
-      onExit: (_) {
-        setState(() {
-          isSelected = false;
-        });
-      },
-      child: AnimatedDefaultTextStyle(
-        duration: const Duration(milliseconds: 100),
-        curve: Curves.elasticInOut,
-        style: isSelected
-            ? GoogleFonts.roboto(
-                shadows: [
-                    Shadow(color: Colors.black, offset: Offset(0.0, -5.0))
-                  ],
-                color: Colors.transparent,
-                fontSize: 25.0,
-                decoration: TextDecoration.underline,
-                decorationThickness: 2.0,
-                decorationColor: Colors.tealAccent)
-            : GoogleFonts.roboto(color: Colors.black, fontSize: 20.0),
-        child: Text(widget.title),
+      child: MouseRegion(
+        onEnter: (_) {
+          setState(() {
+            isSelected = true;
+          });
+        },
+        onExit: (_) {
+          setState(() {
+            isSelected = false;
+          });
+        },
+        child: AnimatedDefaultTextStyle(
+          duration: const Duration(milliseconds: 100),
+          curve: Curves.elasticInOut,
+          style: isSelected
+              ? GoogleFonts.roboto(
+                  shadows: [
+                      Shadow(color: Colors.black, offset: Offset(0.0, -5.0))
+                    ],
+                  color: Colors.transparent,
+                  fontSize: 25.0,
+                  decoration: TextDecoration.underline,
+                  decorationThickness: 2.0,
+                  decorationColor: Colors.tealAccent)
+              : GoogleFonts.roboto(color: Colors.black, fontSize: 20.0),
+          child: Text(widget.title),
+        ),
       ),
     );
   }
@@ -66,7 +72,9 @@ class _TabsMobileState extends State<TabsMobile> {
         widget.text,
         style: GoogleFonts.openSans(fontSize: 20.0, color: Colors.white),
       ),
-      onPressed: () {},
+      onPressed: () {
+        Navigator.of(context).pushNamed(widget.route);
+      },
     );
   }
 }
